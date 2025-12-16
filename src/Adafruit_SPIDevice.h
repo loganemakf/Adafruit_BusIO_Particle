@@ -83,7 +83,9 @@ typedef uint32_t BusIO_PortMask;
     !defined(PORTDUINO)
 typedef volatile uint32_t BusIO_PortReg;
 typedef uint32_t BusIO_PortMask;
-#if !defined(__ASR6501__) && !defined(__ASR6502__)
+// Particle Photon2 could not update 2.13" quad eink until this change;
+// I don't know whether this actually applies to *all* Particle boards
+#if !defined(__ASR6501__) && !defined(__ASR6502__) && !defined(PARTICLE)
 #define BUSIO_USE_FAST_PINIO
 #endif
 
